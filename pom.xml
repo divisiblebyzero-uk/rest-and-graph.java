@@ -37,6 +37,8 @@
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
+
+        <!-- This is only for reading the index.html page from the classpath -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
