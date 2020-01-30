@@ -1,0 +1,14 @@
+type Country {
+    id: ID!,
+    name: String,
+    language: String
+}
+
+type Query {
+    countries:[Country]
+    country(id: ID):Country
+}
+
+type Mutation {
+    createCountry(name: String!, language: String!):Country
+}

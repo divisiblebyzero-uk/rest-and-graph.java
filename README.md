@@ -54,7 +54,47 @@ These are fully Spring-managed REST repositories, and so you can GET the full li
 
 ### GraphQL
 
-To be implemented
+In the `service.graphql` are the Query and Mutation objects, and in `src/main/resources/graphql` is the graphqls files which define the contract.
+
+The application includes an embedded graphiql interface, so fire it up and browse to http://localhost:8080/graphiql.
+
+Don't forget to insert some test data (http://localhost:8080/manual/insertData) first otherwise you won't see anything.
+
+You can browse the API using the docs link at the right hand side of graphiql, or alternatively try one of the following:
+
+#### List all countries
+```graphql
+{
+  countries {
+    id
+    name
+    language
+  }
+}
+```
+
+#### Grab a particular country
+```graphql
+{
+  country(id: 1) {
+    id
+    name
+    language
+  }
+}
+```
+
+#### Insert a new country
+```graphql
+mutation {
+  createCountry(name: "Bolivia", language: "Bolivian")
+  {
+    id
+  }
+}
+```
+
+Behind the scene, the queries and mutations are using the manual JPA repositories used in the first implementation.
 
 ## Running the application
 
