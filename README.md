@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/divisiblebyzero-uk/rest-and-graph.java.svg?branch=master)](https://travis-ci.com/divisiblebyzero-uk/rest-and-graph.java)
+[![Build Status](https://travis-ci.com/divisiblebyzero-uk/rest-and-graph.java.svg?branch=master)](https://travis-ci.com/divisiblebyzero-uk/rest-and-graph.java) ![Java CI](https://github.com/divisiblebyzero-uk/rest-and-graph.java/workflows/Java%20CI/badge.svg)
 # Rest and Graph Demonstration project - Java implementation
 
 This is a project to demo REST and GraphQL using Java (and Spring boot). There are sister projects in Node.JS, C# and Kotlin.
