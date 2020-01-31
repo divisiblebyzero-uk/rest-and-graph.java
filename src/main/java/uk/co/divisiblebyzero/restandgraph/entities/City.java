@@ -1,9 +1,6 @@
 package uk.co.divisiblebyzero.restandgraph.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class City {
@@ -12,7 +9,7 @@ public class City {
 
     }
 
-    public City(String country, String name, String size) {
+    public City(Country country, String name, String size) {
         this.country = country;
         this.name = name;
         this.size = size;
@@ -22,7 +19,8 @@ public class City {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
-    private String country;
+    @ManyToOne
+    private Country country;
     private String name;
     private String size;
 
@@ -34,11 +32,11 @@ public class City {
         this.id = id;
     }
 
-    public String getCountry() {
+    public Country getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 

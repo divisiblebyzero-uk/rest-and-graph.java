@@ -27,15 +27,15 @@ public class ManualWebController {
      */
     @RequestMapping("/manual/insertData")
     public String insertData() {
-        countryManualRepository.save(new Country("UK", "English"));
-        countryManualRepository.save(new Country("France", "French"));
-        countryManualRepository.save(new Country("USA", "Not English"));
+        Country uk = countryManualRepository.save(new Country("UK", "English"));
+        Country france = countryManualRepository.save(new Country("France", "French"));
+        Country usa = countryManualRepository.save(new Country("USA", "Not English"));
 
-        cityManualRepository.save(new City("UK", "London", "Huge"));
-        cityManualRepository.save(new City("UK", "St Asaph's", "Tiny"));
-        cityManualRepository.save(new City("UK", "Canterbury", "Medium"));
-        cityManualRepository.save(new City("France", "Paris", "Huge"));
-        cityManualRepository.save(new City("USA", "Paris, Tx", "Unknown"));
+        cityManualRepository.save(new City(uk, "London", "Huge"));
+        cityManualRepository.save(new City(uk, "St Asaph's", "Tiny"));
+        cityManualRepository.save(new City(uk, "Canterbury", "Medium"));
+        cityManualRepository.save(new City(france, "Paris", "Huge"));
+        cityManualRepository.save(new City(usa, "Paris, Tx", "Unknown"));
 
         return "done";
     }

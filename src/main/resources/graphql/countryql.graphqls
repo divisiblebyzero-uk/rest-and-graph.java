@@ -7,7 +7,7 @@ type Country {
 type City {
     id: ID!,
     name: String,
-    country: String,
+    country: Country,
     size: String
 }
 

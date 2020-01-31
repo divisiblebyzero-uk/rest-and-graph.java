@@ -20,7 +20,11 @@ The application has a simple entity model: Countries and Cities
 {
   "id": 1,
   "name": "London",
-  "country": "UK",
+  "country": {
+    "id": 1,
+    "name": "UK",
+    "language": "English"
+  },
   "size": "Huge"
 }
 ```
@@ -43,6 +47,8 @@ The web controller has the following endpoints:
 * http://localhost:8080/manual/listAllCountries - Dumps out all countries
 * http://localhost:8080/manual/listAllCities - Dumps out all cities
 
+Note that the Cities are full-fat entities - ie the City record contains the entire Country record as well.
+
 ### RestRepository
 
 In the `service.restrepository` package are two RestRepository implementations:
@@ -51,6 +57,8 @@ In the `service.restrepository` package are two RestRepository implementations:
 * http://localhost:8080/cities
 
 These are fully Spring-managed REST repositories, and so you can GET the full list, GET by id, or POST a write.
+
+Note that the Cities provide references (URIs) to the Country record. It's up to you to go get them.
 
 ### GraphQL
 
@@ -83,6 +91,21 @@ You can browse the API using the docs link at the right hand side of graphiql, o
   }
 }
 ```
+
+#### Grab a particular city
+```graphql
+{
+  city(id: 1) {
+    id
+    name
+    size
+    country {
+        name
+    }       
+  }
+}
+```
+
 
 #### Insert a new country
 ```graphql
